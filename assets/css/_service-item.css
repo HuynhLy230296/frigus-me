@@ -1,0 +1,32 @@
+.service__item {
+  margin: 30px 10px;
+  display: grid;
+  justify-items: center;
+  padding: 50px 20px 25px 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.service__icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 20px;
+}
+.service__time {
+  font-size: 15px;
+  font-weight: 400;
+}
+.service__title {
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.service__description {
+  color: #4c4c4c;
+  font-size: 15px;
+  font-weight: 400;
+}
+.experience__item {
+  margin: 30px 80px;
+  display: grid;
+  justify-items: center;
+}

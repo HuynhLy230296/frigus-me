@@ -1,0 +1,15 @@
+:root {
+  --common-color: #41228e;
+}
+.common-text-color {
+  color: var(--common-color);
+}
+.common-text-title {
+  font-size: 60px;
+  font-weight: 500;
+}
+.common-text-title--common-color {
+  color: var(--common-color);
+  font-size: 60px;
+  font-weight: 500;
+}

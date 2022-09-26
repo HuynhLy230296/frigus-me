@@ -1,0 +1,6 @@
+.table {
+  display: table;
+}
+.table__col {
+  display: table-cell;
+}

@@ -1,0 +1,11 @@
+.experience-listing {
+  text-align: center;
+  margin: 0 auto;
+}
+.experience-listing__title {
+  font-size: 60px;
+  font-weight: 500;
+}
+.experience-listing .experience-items {
+  margin: 20px 0;
+}

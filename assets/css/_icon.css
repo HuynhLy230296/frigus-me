@@ -1,0 +1,30 @@
+.icon {
+  width: 45px;
+  height: 45px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.icon__vector {
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-image: url('../icon/vector.svg');
+  mask-image: url('../icon/vector.svg');
+}
+.icon__panel {
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-image: url('../icon/panel.svg');
+  mask-image: url('../icon/panel.svg');
+}
+.icon__palette {
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-image: url('../icon/palette.svg');
+  mask-image: url('../icon/palette.svg');
+}
+.icon.black {
+  background-color: black;
+}
+.icon.white {
+  background-color: white;
+}
