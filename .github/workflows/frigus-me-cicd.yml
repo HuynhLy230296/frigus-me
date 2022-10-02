@@ -2,7 +2,9 @@ name: Build and Deploy to Server
 
 on:
   push:
-    branches: [juy-testing]
+    branches: [master]
+  pull_request:
+    branches: [master]
 
 jobs:
   # This workflow contains a single job called "build"
@@ -12,7 +14,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Deploy using ssh
+      - name: build and deploy
         uses: appleboy/ssh-action@master
         with:
           host: 15.235.185.253
@@ -21,5 +23,9 @@ jobs:
           passphrase: ${{ secrets.CICD_PASSPHRASE }}
           port: 22
           script: |
-            pwd
-            ls -l
+            cd /usr/src/github/frigus-me/frigus-me
+            git pull origin master
+            npm run build
+            npm run generate
+            cp dist /var/www/frigus-me/html
+            sudo service nginx reload
