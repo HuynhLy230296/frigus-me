@@ -13,7 +13,7 @@ $ npm run dev
 $ npm run build
 $ npm run start
 
-# generate static project
+# generate static project ahihi
 $ npm run generate
 ```
 
