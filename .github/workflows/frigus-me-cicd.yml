@@ -26,7 +26,7 @@ jobs:
           port: 22
           script: |
             cd /usr/src/github/frigus-me/frigus-me
-            git pull origin master
+            git pull origin develop
             npm run build
             npm run generate
             cp dist /var/www/frigus-me/html
