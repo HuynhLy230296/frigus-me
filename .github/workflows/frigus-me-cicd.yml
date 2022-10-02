@@ -21,5 +21,9 @@ jobs:
           passphrase: ${{ secrets.CICD_PASSPHRASE }}
           port: 22
           script: |
-            pwd
-            ls -l
+            cd /usr/src/github/frigus-me/frigus-me
+            git pull master
+            npm run build
+            npm run generate
+            cp dist /var/www/frigus-me/html
+            sudo service nginx reload
