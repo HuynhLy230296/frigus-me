@@ -1,0 +1,31 @@
+name: Build and Deploy to Server
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: build and deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: 15.235.185.253
+          username: debian
+          key: ${{ secrets.SSH_KEY_FRIGUS_ME }}
+          passphrase: ${{ secrets.CICD_PASSPHRASE }}
+          port: 22
+          script: |
+            cd /usr/src/github/frigus-me/frigus-me
+            git pull origin master
+            npm run build
+            npm run generate
+            cp dist /var/www/frigus-me/html
+            sudo service nginx reload
