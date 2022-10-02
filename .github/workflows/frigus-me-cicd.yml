@@ -16,7 +16,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: 15.235.185.253
-          username: ${{ secrets.CICD_USER }}
+          username: debian
           key: ${{ secrets.SSH_KEY_FRIGUS_ME }}
           port: 22
           script: |
