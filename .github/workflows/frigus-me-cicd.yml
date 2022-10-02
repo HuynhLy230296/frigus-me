@@ -1,0 +1,36 @@
+name: Build and Deploy to Server
+
+on:
+  push:
+    branches:
+	  - "juy-testing"
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+	
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - name: Checkout master branch
+		uses: actions/checkout@master
+		
+	  - name: Run build
+	    run: npm run build
+	
+	  - name: access VM
+	    users: appleboy/ssh-action@master
+	    with:
+		    host: $ {{ 15.235.185.253 }}
+			username: ${{ secrets.CICD_USER }}
+			key: ${{ secrets.SSH_KEY_FRIGUS_ME }}
+		    port: 22
+			script: |
+				  pwd
+				  ls -l
