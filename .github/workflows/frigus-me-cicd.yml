@@ -2,35 +2,23 @@ name: Build and Deploy to Server
 
 on:
   push:
-    branches:
-	  - "juy-testing"
-  pull_request:
-    branches:
-      - master
+    branches: [juy-testing]
 
 jobs:
-  ci:
-    runs-on: ${{ matrix.os }}
-	
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Checkout master branch
-		uses: actions/checkout@master
-		
-	  - name: Run build
-	    run: npm run build
-	
-	  - name: access VM
-	    users: appleboy/ssh-action@master
-	    with:
-		    host: $ {{ 15.235.185.253 }}
-			username: ${{ secrets.CICD_USER }}
-			key: ${{ secrets.SSH_KEY_FRIGUS_ME }}
-		    port: 22
-			script: |
-				  pwd
-				  ls -l
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: 15.235.185.253
+          username: ${{ secrets.CICD_USER }}
+          key: ${{ secrets.SSH_KEY_FRIGUS_ME }}
+          port: 22
+          script: |
+            pwd
+            ls -l
