@@ -1,0 +1,23 @@
+.experience__item {
+  margin: 30px 80px;
+  display: grid;
+  justify-items: center;
+}
+.experience__icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 20px;
+}
+.experience__time {
+  font-size: 15px;
+  font-weight: 400;
+}
+.experience__title {
+  font-size: 22px;
+  font-weight: 500;
+}
+.experience__customer {
+  color: #999999;
+  font-size: 14px;
+  font-weight: 500;
+}

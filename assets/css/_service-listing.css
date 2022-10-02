@@ -1,0 +1,24 @@
+.service-listing {
+  text-align: center;
+  margin: 30px auto 0 auto;
+  max-width: 1240px;
+}
+.service-listing__title {
+  font-size: 60px;
+  font-weight: 500;
+}
+.service-listing .service-items {
+  max-width: 1000px;
+  margin: 20px 0;
+  display: flex;
+  place-content: center;
+}
+div.highlight {
+  background-color: var(--common-color);
+}
+div.highlight span {
+  color: rgb(255, 255, 255);
+}
+div.highlight img {
+  color: rgb(255, 255, 255);
+}
