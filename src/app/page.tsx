@@ -1,113 +1,162 @@
-import Image from 'next/image'
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+
+const menuTextItems = ["Works", "About", "Contact"];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex min-h-screen flex-col items-center">
+      {/* Menu Section */}
+      <nav className="bg-black w-full sticky top-0 z-[99999]">
+        <div className="container flex justify-around items-center text-white p-4">
+          <Image
+            className="relative"
+            src="/logo.png"
+            alt="Next.js Logo"
+            width={50}
+            height={46}
+            priority
+          />
+          {menuTextItems.map((textItem, index) => (
+            <a
+              key={textItem + index}
+              href={`#${textItem.toLowerCase()}`}
+              className="hover:before:scale-x-100 hover:before:origin-left text-md relative before:w-full before:h-1 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-primary before:absolute before:left-0 before:-bottom-2"
+            >
+              {textItem.toUpperCase()}
+            </a>
+          ))}
+
+          <Button variant="default" className="text-white">
+            (+57)-1234-444-00
+          </Button>
+        </div>
+      </nav>
+      {/* Hero Section */}
+      <div
+        className="relative
+        h-screen
+        flex flex-col items-center justify-center
+        bg-[url('/hero-section-background.jpeg')] 
+        bg-bottom bg-no-repeat bg-cover w-full 
+        before:[clip-path:polygon(0%_0%,0%_100%,100%_100%)] 
+        before:bg-primary before:-bottom-1 before:absolute before:w-full before:h-32 before:z-10
+        after:absolute
+        after:top-0
+        after:left-0
+        after:bg-opacity-40
+        after:bg-black
+        after:w-full
+        after:h-full
+        "
+      >
+        <div className="flex flex-col container text-white items-center z-50">
+          <h3 className="text-4xl">We are</h3>
+          <h1 className="text-9xl m-6">STUDIO</h1>
+          <h5 className="text-md italic max-w-md text-center">
+            Digital marketing strategies enhance revenue growth expectancy
+            nearly 3 times over.
+          </h5>
+          <Button variant="outline" size="lg" className="mt-4">
+            Talk with us
+          </Button>
         </div>
       </div>
+      {/* Work Section */}
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div
+        className="relative
+        h-[80vh]
+        flex flex-col items-center w-full bg-primary
+        before:[clip-path:polygon(0%_0%,0%_100%,100%_100%)] 
+        before:bg-primary before:-bottom-1 before:absolute before:w-full before:h-32 before:z-10"
+        id="works"
+      >
+        <div className="flex flex-col container text-black z-50 w-50">
+          <h1 className="text-7xl my-6">WORKS</h1>
+          <h5 className="text-md italic max-w-4xl">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+            labore ad minima, minus vero at facere. Asperiores voluptatum
+            voluptates commodi.
+          </h5>
+          <div className="mt-4">
+            <div
+              className="group relative 
+              w-[350px] h-[350px] 
+              bg-bottom bg-no-repeat bg-cover 
+              rounded-full 
+              bg-[url('/hero-section-background.jpeg')]"
+            >
+              <div
+                className="
+                absolute 
+                rounded-full
+                top-0 
+                left-0 
+                w-full
+                h-0 flex flex-col justify-center items-center 
+                opacity-0 
+                group-hover:h-full 
+                group-hover:opacity-100
+                group-hover:bg-opacity-40
+                group-hover:bg-black
+                duration-300"
+              >
+                <h1 className="text-md text-white px-4 text-center">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Porro, excepturi!
+                </h1>
+                <AlertDialog>
+                  <AlertDialogTrigger className="text-md text-primary px-4 pt-4 text-center duration-300 hover:text-white">
+                    Know more
+                  </AlertDialogTrigger>
+                  <AlertDialogContent className="max-w-3xl shadow-none bg-transparent border-0">
+                    <AlertDialogHeader>
+                      <AlertDialogTitle asChild className="flex">
+                        <AspectRatio ratio={16 / 9}>
+                          <Image
+                            alt="product-image"
+                            src="/hero-section-background.jpeg"
+                            fill
+                            className="rounded-md object-fill"
+                          />
+                        </AspectRatio>
+                      </AlertDialogTitle>
+                      <AlertDialogDescription asChild>
+                        <h3 className="text-white italic text-xl">
+                          Photography is the art, application and practice of
+                          creating durable images by recording light or other
+                          electromagnetic radiation, either electronically by
+                          means of an image sensor, or chemically by means of a
+                          light-sensitive material such as photographic film. It
+                          is employed in many fields of science, manufacturing
+                          (e.g., photolithography), and business, as well as its
+                          more direct uses for art, film and video production,
+                          recreational purposes, hobby, and mass communication.
+                        </h3>
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogAction>Close</AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
-  )
+  );
 }
