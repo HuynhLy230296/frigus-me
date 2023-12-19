@@ -61,3 +61,15 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+.slick-prev {
+  left: -40px !important;
+}
+
+.slick-prev::before, .slick-next::before {
+  font-size: 32px !important;
+}
